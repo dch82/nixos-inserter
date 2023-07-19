@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+#
+# nixos-inserter
+#
+# a better nixos installer
+#
+# danche choi / gpl 3.0
+#
+
+flake = $1    # Argument is flake uri
+
+disko --flake $1                              # Partition disks
+nixos-install --no-root-password --flake $1   # Install NixOS
+
+sudo reboot   # Reboot
